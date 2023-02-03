@@ -1,6 +1,6 @@
 {
   "name": "vite-project",
-  "private": true,
+  "private": false,
   "homepage": "https://juliosergiofs.github.io/web-template",
   "version": "0.0.0",
   "type": "module",
