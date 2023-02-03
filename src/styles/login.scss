@@ -1,0 +1,46 @@
+$page-color: rgb(170, 188, 203);
+$card-color: rgb(242, 245, 247);
+$primary-color: rgb(21, 82, 212);
+$button-text-color: rgb(255, 255, 255);
+
+input {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+}
+
+button {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: $primary-color;
+  color: $button-text-color;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $page-color;
+}
+
+.card {
+  padding: 48px 32px;
+  background-color: $card-color;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 12px;
+  height: min-content;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;
+}
+
+.highlight-text {
+  color: $primary-color;
+  font-weight: bold;
+  cursor: pointer;
+}
