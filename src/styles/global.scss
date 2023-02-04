@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -20,4 +22,12 @@ textarea {
 
 #root {
   height: 100vh;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $page-background-color;
 }

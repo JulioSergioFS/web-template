@@ -1,12 +1,10 @@
-$page-color: rgb(170, 188, 203);
-$card-color: rgb(242, 245, 247);
-$primary-color: rgb(21, 82, 212);
-$button-text-color: rgb(255, 255, 255);
+@use "variables" as *;
+$input-border-color: rgb(213, 222, 229);
 
 input {
   padding: 12px;
   border-radius: 4px;
-  border: none;
+  border: 1px solid $input-border-color;
 }
 
 button {
@@ -19,16 +17,8 @@ button {
   cursor: pointer;
 }
 
-.page {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $page-color;
-}
-
 .card {
-  padding: 48px 32px;
+  padding: 40px 32px;
   background-color: $card-color;
   display: flex;
   flex-direction: column;
@@ -37,6 +27,12 @@ button {
   height: min-content;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 16px;
 }
 
 .highlight-text {
