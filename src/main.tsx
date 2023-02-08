@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
@@ -11,7 +12,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <HashRouter basename={import.meta.env.PUBLIC_URL}>
       <HelmetProvider>
         <Suspense fallback={<Loading />}>
-          <Router />
+          <AnimatePresence>
+            <Router />
+          </AnimatePresence>
         </Suspense>
       </HelmetProvider>
     </HashRouter>
