@@ -1,12 +1,27 @@
 import { lazy } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
+import AuthGuard from "../guards/AuthGuard";
 
 export function Router() {
   return useRoutes([
-    { path: "/", element: <Navigate to={"/login"} replace /> },
+    { path: "/", element: <Navigate to="/login" replace /> },
     {
       path: "/dashboard",
-      element: <Dashboard />,
+      element: (
+        <AuthGuard>
+          <Dashboard />
+        </AuthGuard>
+      ),
+      children: [
+        {
+          element: <Navigate to="/dashboard/ecommerce" replace />,
+          index: true,
+        },
+        {
+          path: "ecommerce",
+          element: <Ecommerce />,
+        },
+      ],
     },
     {
       path: "/login",
@@ -19,10 +34,6 @@ export function Router() {
     {
       path: "/create-account",
       element: <CreateAccount />,
-    },
-    {
-      path: "/ecommerce",
-      element: <Ecommerce />,
     },
   ]);
 }

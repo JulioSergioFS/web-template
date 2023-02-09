@@ -3,6 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   '@hookform/error-message': ^2.0.1
   '@hookform/resolvers': ^2.8.8
+  '@iconify/icons-ic': ^1.2.13
+  '@iconify/icons-material-symbols': ^1.2.27
+  '@iconify/icons-mingcute': ^1.2.4
+  '@iconify/react': ^4.1.0
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react': ^3.1.0
@@ -32,6 +36,10 @@ dependencies:
   yup: 0.32.11
 
 devDependencies:
+  '@iconify/icons-ic': 1.2.13
+  '@iconify/icons-material-symbols': 1.2.27
+  '@iconify/icons-mingcute': 1.2.4
+  '@iconify/react': 4.1.0_react@18.2.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@vitejs/plugin-react': 3.1.0_vite@4.1.1
@@ -507,6 +515,37 @@ packages:
     dependencies:
       react-hook-form: 7.43.1_react@18.2.0
     dev: false
+
+  /@iconify/icons-ic/1.2.13:
+    resolution: {integrity: sha512-TphrhwOvgd7CTmUhz6jgXF+SPnMtvTm03bZsAYbny2kwq4zlkhr9e16YEyPGMvKhjtTqNooA3iZ9Wa+pZ8moXQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-material-symbols/1.2.27:
+    resolution: {integrity: sha512-EdZ5yfaRgaRojphX8BSoJb+5spTWnC1liys78nwt3O6tPXAQcEET9OMecfRv54/b4OF1B1dJZLsSrDBpImJ1zw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-mingcute/1.2.4:
+    resolution: {integrity: sha512-tCrw8vdfdCgbIRNpZFuuMOFuDWVqiArbM0RZ4+S2wTavjmiCQ9LmmwiXF6BuRT9hg/QQwgdTWR6u/qD2/LTVbg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/react/4.1.0_react@18.2.0:
+    resolution: {integrity: sha512-Mf72i3TNNKpKCKxmo7kzqyrUdCgaoljpqtWmtqpqwyxoV4ukhnDsSRNLhf2yBnqGr3cVZsdj/i0FMpXIY0Qk0g==}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 18.2.0
+    dev: true
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
@@ -1547,7 +1586,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /lru-cache/5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -2093,7 +2131,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}

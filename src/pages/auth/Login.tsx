@@ -1,9 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Page } from "../../components/Page";
 import { RHFInput } from "../../components/RHFInput";
+import useSnackbar from "../../hooks/useSnackbar";
 import "../../styles/login.scss";
 
 type FormValuesProps = {
@@ -13,12 +15,14 @@ type FormValuesProps = {
 
 export default function Login() {
   const navigate = useNavigate();
+  const { openSnackbar } = useSnackbar();
+  const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .email("O e-mail deve ser um endereço de e-mail válido")
       .required("O e-mail é obrigatório"),
-    password: Yup.string().required("Senha é obrigatório"),
+    password: Yup.string().required("Senha é obrigatória"),
   });
 
   const defaultValues = {
@@ -31,10 +35,21 @@ export default function Login() {
     defaultValues,
   });
 
-  const { reset, handleSubmit } = methods;
+  const { reset, handleSubmit, watch } = methods;
+  const values = watch();
 
   const onSubmit = async (data: FormValuesProps) => {
     try {
+      if (data.email === "admin@gmail.com" && data.password === "password") {
+        console.log("login feito com sucesso");
+        localStorage.setItem("email", values?.email);
+        localStorage.setItem("name", "Admin User");
+        openSnackbar({ type: "success", message: "Login feito com sucesso" });
+        navigate("/dashboard");
+      } else {
+        console.log("erro ao fazer login");
+        openSnackbar({ type: "error" });
+      }
       console.log(data);
     } catch (error) {
       reset();

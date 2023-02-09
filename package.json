@@ -25,6 +25,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@iconify/icons-ic": "^1.2.13",
+    "@iconify/icons-material-symbols": "^1.2.27",
+    "@iconify/icons-mingcute": "^1.2.4",
+    "@iconify/react": "^4.1.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",

@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import { HashRouter } from "react-router-dom";
+import { SnackbarProvider } from "./context/SnackbarContext";
 import Loading from "./pages/Loading";
 import { Router } from "./routes";
 import "./styles/global.scss";
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <HelmetProvider>
         <Suspense fallback={<Loading />}>
           <AnimatePresence>
-            <Router />
+            <SnackbarProvider>
+              <Router />
+            </SnackbarProvider>
           </AnimatePresence>
         </Suspense>
       </HelmetProvider>
