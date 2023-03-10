@@ -1,3 +1,6 @@
+import logoutVariant from "@iconify/icons-mdi/logout-variant";
+import userIcon from "@iconify/icons-mdi/user";
+import { Icon } from "@iconify/react";
 import { m } from "framer-motion";
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -75,9 +78,11 @@ export default function Dashboard() {
                 className="account-popup"
               >
                 <div className="list-item" onClick={() => navigate("profile")}>
+                  <Icon icon={userIcon} height={22} />
                   Editar Perfil
                 </div>
                 <div className="list-item" onClick={handleLogout}>
+                  <Icon icon={logoutVariant} height={22} />
                   Sair
                 </div>
               </m.div>

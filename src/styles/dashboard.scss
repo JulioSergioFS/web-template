@@ -66,7 +66,7 @@ main {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .list-item {
@@ -100,7 +100,7 @@ main {
 
 .account-popup {
   background-color: $card-color;
-  padding: 8px;
+  padding: 4px;
   border-radius: 8px;
   position: absolute;
   bottom: -94px;

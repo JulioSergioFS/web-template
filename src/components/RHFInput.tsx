@@ -22,7 +22,9 @@ export function RHFInput({
         placeholder={placeholder}
         {...register(name, options)}
       />
-      {errors ? <p style={{ color: "red" }}>{errors[name]?.message}</p> : null}
+      {errors ? (
+        <p style={{ color: "red" }}>{errors[name]?.message as string}</p>
+      ) : null}
     </>
   );
 }
