@@ -1,7 +1,10 @@
+@use "variables" as *;
+
 $sidebar-color: #ffffff;
 $user-card-color: #e0e9ee;
 $page-list-color: #bfdff4;
 $page-list-text-color: #266894;
+$gray-text-color: #55555f;
 
 main {
   display: flex;
@@ -56,7 +59,7 @@ main {
 
 .user-role {
   font-size: 0.95rem;
-  color: #666666;
+  color: $gray-text-color;
 }
 
 .page-list {
@@ -66,13 +69,17 @@ main {
   gap: 4px;
 }
 
-.page-list-items {
-  padding: 12px;
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: $gray-text-color;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
 
   &:hover {
-    background-color: $page-list-color;
+    background-color: rgba($color: $page-list-color, $alpha: 0.3);
     color: $page-list-text-color;
   }
 }
@@ -81,6 +88,7 @@ main {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .content {
@@ -88,4 +96,13 @@ main {
   padding: 24px;
   display: flex;
   flex-direction: column;
+}
+
+.account-popup {
+  background-color: $card-color;
+  padding: 8px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: -94px;
+  box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;
 }

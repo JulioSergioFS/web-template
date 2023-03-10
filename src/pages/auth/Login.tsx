@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { m } from "framer-motion";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -59,7 +60,14 @@ export default function Login() {
   return (
     <Page title="Login">
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} className="card">
+        <m.form
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: "easeIn", duration: 0.3 }}
+          exit={{ opacity: 0 }}
+          onSubmit={handleSubmit(onSubmit)}
+          className="card"
+        >
           <h2 className="title">Bem-vindo!</h2>
           <RHFInput name="email" placeholder="E-mail" />
           <RHFInput name="password" type="password" placeholder="Senha" />
@@ -81,7 +89,7 @@ export default function Login() {
               Criar conta
             </b>
           </p>
-        </form>
+        </m.form>
       </FormProvider>
     </Page>
   );

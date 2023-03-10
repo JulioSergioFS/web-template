@@ -15,6 +15,9 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^2.8.8",
+    "@iconify/icons-clarity": "^1.2.8",
+    "@iconify/icons-mdi": "^1.2.44",
+    "@iconify/icons-ph": "^1.2.4",
     "framer-motion": "^9.0.2",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",

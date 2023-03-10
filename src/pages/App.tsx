@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Page } from "../components/Page";
 
-export default function Ecommerce() {
+export default function App() {
   const [count, setCount] = useState(0);
 
-  return <Page title="Ecommerce">ecommerce</Page>;
+  return <Page title="App">app</Page>;
 }

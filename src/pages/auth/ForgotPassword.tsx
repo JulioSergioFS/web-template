@@ -1,3 +1,4 @@
+import { m } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/Page";
@@ -9,7 +10,13 @@ export default function ForgotPassword() {
 
   return (
     <Page title="Login">
-      <div className="card">
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ease: "easeIn", duration: 0.3 }}
+        exit={{ opacity: 0 }}
+        className="card"
+      >
         <h2 className="title">Esqueceu sua senha?</h2>
         <p className="subtitle">Digite seu email para redefinir sua senha</p>
         <input type="email" placeholder="E-mail" />
@@ -17,7 +24,7 @@ export default function ForgotPassword() {
         <button className="button-secondary" onClick={() => navigate("/login")}>
           Voltar
         </button>
-      </div>
+      </m.div>
     </Page>
   );
 }

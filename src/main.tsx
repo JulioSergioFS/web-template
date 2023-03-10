@@ -1,8 +1,8 @@
-import { AnimatePresence } from "framer-motion";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import { HashRouter } from "react-router-dom";
+import MotionLazyContainer from "./components/animate/MotionLazyContainer";
 import { SnackbarProvider } from "./context/SnackbarContext";
 import Loading from "./pages/Loading";
 import { Router } from "./routes";
@@ -13,11 +13,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <HashRouter basename={import.meta.env.PUBLIC_URL}>
       <HelmetProvider>
         <Suspense fallback={<Loading />}>
-          <AnimatePresence>
+          <MotionLazyContainer>
             <SnackbarProvider>
               <Router />
             </SnackbarProvider>
-          </AnimatePresence>
+          </MotionLazyContainer>
         </Suspense>
       </HelmetProvider>
     </HashRouter>
