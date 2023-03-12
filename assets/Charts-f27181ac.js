@@ -1,0 +1,1 @@
+import{B as t,a0 as a,a3 as r}from"./index-2fbe901d.js";function e(){return t.useState(0),a(r,{title:"Charts",children:a("h3",{className:"main-title",children:"Charts - in progress"})})}export{e as default};
