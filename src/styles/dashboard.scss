@@ -1,7 +1,6 @@
 @use "variables" as *;
 @import "media-queries";
 
-$sidebar-color: #ffffff;
 $user-card-color: #e0e9ee;
 $page-list-color: #bfdff4;
 $page-list-text-color: #266894;
@@ -15,7 +14,7 @@ main {
 
 .sidebar {
   width: 360px;
-  background-color: $sidebar-color;
+  background-color: $card-color;
   overflow: hidden;
   padding: 24px;
   display: flex;
@@ -104,6 +103,7 @@ main {
   display: flex;
   justify-content: flex-end;
   position: relative;
+  padding-bottom: 16px;
 
   @include mobile {
     justify-content: space-between;
@@ -123,6 +123,6 @@ main {
   border-radius: 8px;
   position: absolute;
   right: 0;
-  bottom: -94px;
+  bottom: -80px;
   box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;
 }

@@ -21,9 +21,9 @@ export default function Login() {
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
-      .email("O e-mail deve ser um endereço de e-mail válido")
-      .required("O e-mail é obrigatório"),
-    password: Yup.string().required("Senha é obrigatória"),
+      .email("E-mail must be a valid e-mail address")
+      .required("E-mail is mandatory"),
+    password: Yup.string().required("Password is mandatory"),
   });
 
   const defaultValues = {
@@ -71,12 +71,12 @@ export default function Login() {
           <h2 className="title">Bem-vindo!</h2>
           <RHFInput name="email" placeholder="E-mail" />
           <RHFInput name="password" type="password" placeholder="Senha" />
-          <p
+          {/* <p
             className="highlight-text"
             onClick={() => navigate("/forgot-password")}
           >
             Esqueci minha senha
-          </p>
+          </p> */}
           <button className="button-primary" type="submit">
             Entrar
           </button>

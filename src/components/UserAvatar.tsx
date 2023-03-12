@@ -7,7 +7,7 @@ export function UserAvatar({ className, ...other }: Props) {
       {...other}
       className={`user-avatar${className ? " " + className : ""}`}
     >
-      {name[0]}
+      {name.trim()[0].toUpperCase()}
     </div>
   );
 }

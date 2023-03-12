@@ -3,7 +3,7 @@ import roundWarningAmber from "@iconify/icons-ic/round-warning-amber";
 import checkCircleOutlineRounded from "@iconify/icons-material-symbols/check-circle-outline-rounded";
 import closeCircleLine from "@iconify/icons-mingcute/close-circle-line";
 import { Icon } from "@iconify/react";
-import { m } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { createContext, ReactNode, useState } from "react";
 import "../styles/snackbar.scss";
 
@@ -53,42 +53,44 @@ function SnackbarProvider({ children }: SnackbarProviderProps) {
   return (
     <SnackbarContext.Provider value={{ openSnackbar }}>
       {children}
-      {snackbar.show ? (
-        <m.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className={`snackbar ${snackbar.type}`}
-        >
-          <Icon
-            icon={
-              snackbar.type === "success"
-                ? checkCircleOutlineRounded
-                : "warning"
-                ? roundWarningAmber
-                : closeCircleLine
-            }
-            height={20}
-            width={20}
-          />
-          <p>
-            {snackbar.message ||
-              (snackbar.type === "success"
-                ? "Sucesso"
-                : "warning"
-                ? "Cuidado"
-                : "Erro")}
-          </p>
-          <Icon
-            icon={roundClose}
-            height={20}
-            width={20}
-            onClick={() => setSnackbar({ ...snackbar, show: false })}
-            style={{ cursor: "pointer" }}
-          />
-        </m.div>
-      ) : null}
+      <AnimatePresence>
+        {snackbar.show ? (
+          <m.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 24 }}
+            transition={{ duration: 0.3 }}
+            className={`snackbar ${snackbar.type}`}
+          >
+            <Icon
+              icon={
+                snackbar.type === "success"
+                  ? checkCircleOutlineRounded
+                  : "warning"
+                  ? roundWarningAmber
+                  : closeCircleLine
+              }
+              height={20}
+              width={20}
+            />
+            <p>
+              {snackbar.message ||
+                (snackbar.type === "success"
+                  ? "Sucesso"
+                  : "warning"
+                  ? "Cuidado"
+                  : "Erro")}
+            </p>
+            <Icon
+              icon={roundClose}
+              height={20}
+              width={20}
+              onClick={() => setSnackbar({ ...snackbar, show: false })}
+              style={{ cursor: "pointer" }}
+            />
+          </m.div>
+        ) : null}
+      </AnimatePresence>
     </SnackbarContext.Provider>
   );
 }
