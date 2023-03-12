@@ -14,11 +14,12 @@ import "../styles/dashboard.scss";
 export default function Dashboard() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 820);
   const [showSidebar, setShowSidebar] = useState(isMobile);
-  const [showProfilePopup, setShowProfilePopup] = useState(false);
+  const [showUserPopup, setShowUserPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     navigate("/login");
+    setShowUserPopup(!showUserPopup);
     localStorage.removeItem("email");
     localStorage.removeItem("name");
   };
@@ -69,8 +70,8 @@ export default function Dashboard() {
                   <p className="user-name">{localStorage.getItem("name")}</p>
                   <p className="user-role">
                     {localStorage.getItem("email") === "admin@gmail.com"
-                      ? "administrador"
-                      : "visitante"}
+                      ? "admin"
+                      : "visitor"}
                   </p>
                 </div>
               </m.div>
@@ -104,28 +105,31 @@ export default function Dashboard() {
             ) : null}
             <UserAvatar
               className="clickable"
-              onClick={() => setShowProfilePopup(!showProfilePopup)}
+              onClick={() => setShowUserPopup(!showUserPopup)}
             />
             <AnimatePresence>
-              {showProfilePopup ? (
+              {showUserPopup ? (
                 <m.div
                   key="popup"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2 }}
                   exit={{ opacity: 0 }}
                   className="account-popup"
                 >
                   <div
                     className="list-item"
-                    onClick={() => navigate("profile")}
+                    onClick={() => {
+                      setShowUserPopup(!showUserPopup);
+                      navigate("user");
+                    }}
                   >
                     <Icon icon={userIcon} height={22} />
-                    Editar Perfil
+                    Edit User
                   </div>
                   <div className="list-item" onClick={handleLogout}>
                     <Icon icon={logoutVariant} height={22} />
-                    Sair
+                    Logout
                   </div>
                 </m.div>
               ) : null}

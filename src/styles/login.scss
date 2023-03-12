@@ -1,21 +1,14 @@
 @use "variables" as *;
-$input-border-color: rgb(213, 222, 229);
-
-input {
-  padding: 12px;
-  border-radius: 4px;
-  border: 1px solid $input-border-color;
-}
 
 button {
-  padding: 12px;
+  padding: 16px;
   border-radius: 6px;
   border: none;
   font-weight: bold;
   cursor: pointer;
 
   &:hover {
-    filter: brightness(0.95);
+    filter: brightness(0.9);
   }
 }
 
@@ -25,7 +18,7 @@ button {
   display: flex;
   flex-direction: column;
   width: 400px;
-  gap: 12px;
+  gap: 16px;
   height: min-content;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;

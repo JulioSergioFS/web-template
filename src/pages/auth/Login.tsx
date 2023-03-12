@@ -58,7 +58,7 @@ export default function Login() {
   };
 
   return (
-    <Page title="Login">
+    <Page title="Login" notLogged>
       <FormProvider {...methods}>
         <m.form
           initial={{ opacity: 0 }}

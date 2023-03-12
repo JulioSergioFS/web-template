@@ -4,9 +4,12 @@ import AuthGuard from "../guards/AuthGuard";
 
 export function Router() {
   return useRoutes([
-    { path: "/", element: <Navigate to="/login" replace /> },
     {
-      path: "/dashboard",
+      path: "/web-template",
+      element: <Navigate to="/web-template/login" replace />,
+    },
+    {
+      path: "/web-template/dashboard",
       element: (
         <AuthGuard>
           <Dashboard />
@@ -30,25 +33,25 @@ export function Router() {
           element: <Charts />,
         },
         {
-          path: "profiles",
-          element: <Profiles />,
+          path: "users",
+          element: <Users />,
         },
         {
-          path: "profile",
-          element: <Profile />,
+          path: "user",
+          element: <User />,
         },
       ],
     },
     {
-      path: "/login",
+      path: "/web-template/login",
       element: <Login />,
     },
     {
-      path: "/forgot-password",
+      path: "/web-template/forgot-password",
       element: <ForgotPassword />,
     },
     {
-      path: "/create-account",
+      path: "/web-template/create-account",
       element: <CreateAccount />,
     },
   ]);
@@ -62,5 +65,5 @@ const CreateAccount = lazy(() => import("../pages/auth/CreateAccount"));
 const App = lazy(() => import("../pages/App"));
 const Ecommerce = lazy(() => import("../pages/Ecommerce"));
 const Charts = lazy(() => import("../pages/Charts"));
-const Profiles = lazy(() => import("../pages/Profiles"));
-const Profile = lazy(() => import("../pages/Profile"));
+const Users = lazy(() => import("../pages/Users"));
+const User = lazy(() => import("../pages/User"));

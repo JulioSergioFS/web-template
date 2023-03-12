@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import MotionLazyContainer from "./components/animate/MotionLazyContainer";
 import { SnackbarProvider } from "./context/SnackbarContext";
 import Loading from "./pages/Loading";
@@ -10,7 +10,7 @@ import "./styles/global.scss";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <HashRouter basename={import.meta.env.PUBLIC_URL}>
+    <BrowserRouter basename={import.meta.env.PUBLIC_URL}>
       <HelmetProvider>
         <Suspense fallback={<Loading />}>
           <MotionLazyContainer>
@@ -20,6 +20,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </MotionLazyContainer>
         </Suspense>
       </HelmetProvider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );

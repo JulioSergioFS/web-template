@@ -9,7 +9,7 @@ export default function ForgotPassword() {
   const navigate = useNavigate();
 
   return (
-    <Page title="Login">
+    <Page title="Login" notLogged>
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

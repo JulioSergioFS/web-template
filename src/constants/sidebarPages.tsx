@@ -21,8 +21,8 @@ export const pages = [
     link: "charts",
   },
   {
-    name: "Profiles",
+    name: "Users",
     icon: <Icon icon={userGroup} height={22} />,
-    link: "profiles",
+    link: "users",
   },
 ];

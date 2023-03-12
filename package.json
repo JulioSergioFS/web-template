@@ -17,6 +17,7 @@
     "@hookform/resolvers": "^2.8.8",
     "@iconify/icons-ci": "^1.2.9",
     "@iconify/icons-clarity": "^1.2.8",
+    "@iconify/icons-fluent-emoji": "^1.2.9",
     "@iconify/icons-mdi": "^1.2.44",
     "@iconify/icons-ph": "^1.2.4",
     "framer-motion": "^9.0.2",

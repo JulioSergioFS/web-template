@@ -17,11 +17,11 @@ export default function CreateAccount() {
   const navigate = useNavigate();
 
   const CreateAccountSchema = Yup.object().shape({
-    name: Yup.string().required("Nome é obrigatório"),
+    name: Yup.string().required("Name is mandatory"),
     email: Yup.string()
-      .email("O e-mail deve ser um endereço de e-mail válido")
-      .required("O e-mail é obrigatório"),
-    password: Yup.string().required("Senha é obrigatória"),
+      .email("E-mail must be a valid e-mail address")
+      .required("E-mail is mandatory"),
+    password: Yup.string().required("Password is mandatory"),
   });
 
   const methods = useForm<FormValuesProps>({
@@ -44,7 +44,7 @@ export default function CreateAccount() {
   };
 
   return (
-    <Page title="Login">
+    <Page title="Login" notLogged>
       <FormProvider {...methods}>
         <m.form
           initial={{ opacity: 0 }}

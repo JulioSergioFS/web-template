@@ -1,0 +1,34 @@
+@use "../variables" as *;
+@import "../media-queries";
+
+.welcome {
+  flex-direction: row !important;
+  width: 60%;
+  height: min-content;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: rgba($color: $primary-color, $alpha: 0.08);
+  box-shadow: none;
+
+  .content {
+    padding: 0;
+    gap: 16px;
+    width: 360px;
+
+    .go-to {
+      width: max-content;
+      padding: 8px 12px;
+    }
+  }
+
+  .image-container {
+    height: 120px;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      top: -16px;
+      right: 0;
+    }
+  }
+}
