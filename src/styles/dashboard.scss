@@ -1,11 +1,6 @@
 @use "variables" as *;
 @import "media-queries";
 
-$user-card-color: #e0e9ee;
-$page-list-color: #bfdff4;
-$page-list-text-color: #266894;
-$gray-text-color: #55555f;
-
 main {
   display: flex;
   height: 100%;
@@ -100,23 +95,34 @@ main {
   }
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  padding-bottom: 16px;
-
-  @include mobile {
-    justify-content: space-between;
-  }
-}
-
 .content {
   width: 100%;
   padding: 24px;
   display: flex;
   flex-direction: column;
+
+  &_header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-bottom: 16px;
+
+    @include mobile {
+      justify-content: space-between;
+    }
+  }
+
+  &_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &_body {
+      width: 100%;
+      max-width: 1026px;
+    }
+  }
 }
 
 .account-popup {

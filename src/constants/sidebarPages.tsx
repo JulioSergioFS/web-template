@@ -6,9 +6,9 @@ import { Icon } from "@iconify/react";
 
 export const pages = [
   {
-    name: "App",
+    name: "Home",
     icon: <Icon icon={dashboardSolid} height={22} />,
-    link: "app",
+    link: "home",
   },
   {
     name: "E-Commerce",

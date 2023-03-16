@@ -9,19 +9,30 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Page } from "../components/Page";
 import { UserAvatar } from "../components/UserAvatar";
 import { pages } from "../constants/sidebarPages";
+import { clearUser, selectUser } from "../redux/slices/user";
+import { useDispatch, useSelector } from "../redux/store";
 import "../styles/dashboard.scss";
 
 export default function Dashboard() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 820);
   const [showSidebar, setShowSidebar] = useState(isMobile);
   const [showUserPopup, setShowUserPopup] = useState(false);
+  const dispatch = useDispatch();
+  const { selectedUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate("/login");
+  const editUser = () => {
+    if (selectedUser?.id) {
+      dispatch(selectUser(selectedUser?.id));
+    }
     setShowUserPopup(!showUserPopup);
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
+    navigate("user");
+  };
+
+  const handleLogout = () => {
+    setShowUserPopup(!showUserPopup);
+    navigate("/web-template/login");
+    dispatch(clearUser());
   };
 
   useEffect(() => {
@@ -67,9 +78,9 @@ export default function Dashboard() {
               >
                 <UserAvatar />
                 <div className="user-card-data">
-                  <p className="user-name">{localStorage.getItem("name")}</p>
+                  <p className="user-name">{selectedUser?.name}</p>
                   <p className="user-role">
-                    {localStorage.getItem("email") === "admin@gmail.com"
+                    {selectedUser?.email === "admin@gmail.com"
                       ? "admin"
                       : "visitor"}
                   </p>
@@ -94,7 +105,7 @@ export default function Dashboard() {
           ) : null}
         </AnimatePresence>
         <div className="content">
-          <header className="header">
+          <header className="content_header">
             {isMobile ? (
               <Icon
                 icon={hamburgerMd}
@@ -117,13 +128,7 @@ export default function Dashboard() {
                   exit={{ opacity: 0 }}
                   className="account-popup"
                 >
-                  <div
-                    className="list-item"
-                    onClick={() => {
-                      setShowUserPopup(!showUserPopup);
-                      navigate("user");
-                    }}
-                  >
+                  <div className="list-item" onClick={() => editUser()}>
                     <Icon icon={userIcon} height={22} />
                     Edit User
                   </div>
@@ -135,8 +140,10 @@ export default function Dashboard() {
               ) : null}
             </AnimatePresence>
           </header>
-          <section>
-            <Outlet />
+          <section className="content_container">
+            <div className="content_container_body">
+              <Outlet />
+            </div>
           </section>
         </div>
       </main>

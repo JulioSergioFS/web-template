@@ -21,7 +21,10 @@ export default function ForgotPassword() {
         <p className="subtitle">Digite seu email para redefinir sua senha</p>
         <input type="email" placeholder="E-mail" />
         <button className="button-primary">Enviar Pedido</button>
-        <button className="button-secondary" onClick={() => navigate("/login")}>
+        <button
+          className="button-secondary"
+          onClick={() => navigate("/web-template/login")}
+        >
           Voltar
         </button>
       </m.div>

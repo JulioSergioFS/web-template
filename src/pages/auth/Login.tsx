@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import { Page } from "../../components/Page";
 import { RHFInput } from "../../components/RHFInput";
 import useSnackbar from "../../hooks/useSnackbar";
+import { validateUser } from "../../redux/slices/user";
+import { useDispatch, useSelector } from "../../redux/store";
 import "../../styles/login.scss";
 
 type FormValuesProps = {
@@ -16,8 +18,10 @@ type FormValuesProps = {
 
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { openSnackbar } = useSnackbar();
   const [showPassword, setShowPassword] = useState(false);
+  const { selectedUser } = useSelector((state) => state.user);
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
@@ -27,7 +31,7 @@ export default function Login() {
   });
 
   const defaultValues = {
-    email: localStorage.getItem("login") || undefined,
+    email: selectedUser?.email || undefined,
     password: undefined,
   };
 
@@ -39,20 +43,16 @@ export default function Login() {
   const { reset, handleSubmit, watch } = methods;
   const values = watch();
 
-  const onSubmit = async (data: FormValuesProps) => {
+  const onSubmit = async () => {
     try {
-      if (data.email === "admin@gmail.com" && data.password === "password") {
-        console.log("login feito com sucesso");
-        localStorage.setItem("email", values?.email);
-        localStorage.setItem("name", "Admin User");
-        openSnackbar({ type: "success", message: "Login feito com sucesso" });
-        navigate("/dashboard");
-      } else {
-        console.log("erro ao fazer login");
-        openSnackbar({ type: "error" });
-      }
-      console.log(data);
-    } catch (error) {
+      dispatch(validateUser(values));
+      openSnackbar({ type: "success", message: "Login feito com sucesso" });
+      navigate("/web-template/dashboard");
+    } catch (error: any) {
+      openSnackbar({
+        type: "error",
+        message: error?.message || "Erro ao fazer login",
+      });
       reset();
     }
   };
@@ -68,6 +68,7 @@ export default function Login() {
           onSubmit={handleSubmit(onSubmit)}
           className="card"
         >
+          <div>?</div>
           <h2 className="title">Bem-vindo!</h2>
           <RHFInput name="email" placeholder="E-mail" />
           <RHFInput name="password" type="password" placeholder="Senha" />
@@ -84,7 +85,7 @@ export default function Login() {
             Não tem uma conta?{" "}
             <b
               className="highlight-text"
-              onClick={() => navigate("/create-account")}
+              onClick={() => navigate("/web-template/create-account")}
             >
               Criar conta
             </b>

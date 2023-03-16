@@ -2,11 +2,13 @@ import { ReactNode, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 // pages
 import Login from "../pages/auth/Login";
+import { useSelector } from "../redux/store";
 
 // ----------------------------------------------------------------------
 
 export default function AuthGuard({ children }: { children?: ReactNode }) {
-  const isAuthenticated = !!localStorage.getItem("email");
+  const { selectedUser } = useSelector((state) => state.user);
+  const isAuthenticated = !!selectedUser;
   const { pathname } = useLocation();
   const [requestedLocation, setRequestedLocation] = useState<string | null>(
     null

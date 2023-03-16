@@ -17,12 +17,12 @@ export function Router() {
       ),
       children: [
         {
-          element: <Navigate to="/dashboard/app" replace />,
+          element: <Navigate to="/web-template/dashboard/home" replace />,
           index: true,
         },
         {
-          path: "app",
-          element: <App />,
+          path: "home",
+          element: <Home />,
         },
         {
           path: "ecommerce",
@@ -33,12 +33,16 @@ export function Router() {
           element: <Charts />,
         },
         {
+          path: "user",
+          element: <User />,
+        },
+        {
           path: "users",
           element: <Users />,
         },
         {
-          path: "user",
-          element: <User />,
+          path: "users/new",
+          element: <CreateNewUser />,
         },
       ],
     },
@@ -62,8 +66,9 @@ const Login = lazy(() => import("../pages/auth/Login"));
 const ForgotPassword = lazy(() => import("../pages/auth/ForgotPassword"));
 const CreateAccount = lazy(() => import("../pages/auth/CreateAccount"));
 
-const App = lazy(() => import("../pages/App"));
+const Home = lazy(() => import("../pages/Home"));
 const Ecommerce = lazy(() => import("../pages/Ecommerce"));
 const Charts = lazy(() => import("../pages/Charts"));
 const Users = lazy(() => import("../pages/Users"));
 const User = lazy(() => import("../pages/User"));
+const CreateNewUser = lazy(() => import("../pages/NewUser"));

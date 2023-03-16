@@ -1,0 +1,73 @@
+@use "../variables" as *;
+@import "../media-queries";
+
+.cards {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.welcome {
+  flex-direction: row !important;
+  width: 60%;
+  height: min-content;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: rgba($color: $primary-color, $alpha: 0.08);
+  box-shadow: none;
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: space-between;
+    width: 360px;
+
+    .go-to {
+      width: max-content;
+      padding: 8px 12px;
+    }
+  }
+
+  .image-container {
+    height: 120px;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      top: -12px;
+      right: 0;
+    }
+  }
+}
+
+.did-you-know {
+  flex-direction: row !important;
+  height: 100%;
+  width: 40%;
+  justify-content: space-between;
+  gap: 20px;
+
+  &_content {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    width: 200px;
+
+    .highlight-text {
+      color: $page-list-text-color;
+    }
+  }
+
+  .image-container {
+    height: 120px;
+    color: $secondary-color;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

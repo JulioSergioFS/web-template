@@ -12,18 +12,6 @@ button {
   }
 }
 
-.card {
-  padding: 40px 32px;
-  background-color: $card-color;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  gap: 16px;
-  height: min-content;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 10%) 0px 0px 1em;
-}
-
 .title {
   text-align: center;
   font-size: 24px;

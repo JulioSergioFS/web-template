@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Page } from "../components/Page";
 import { RHFInput } from "../components/RHFInput";
 import useSnackbar from "../hooks/useSnackbar";
+import { useSelector } from "../redux/store";
 import "../styles/pages/user.scss";
 
 type FormValuesProps = {
@@ -14,6 +15,8 @@ type FormValuesProps = {
 };
 
 export default function User() {
+  const { selectedUser } = useSelector((state) => state.user);
+
   const navigate = useNavigate();
   const { openSnackbar } = useSnackbar();
 
@@ -26,9 +29,9 @@ export default function User() {
   });
 
   const defaultValues = {
-    name: localStorage.getItem("name") || "",
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
+    name: selectedUser?.name || "",
+    email: selectedUser?.email || "",
+    password: selectedUser?.password || "",
   };
 
   const methods = useForm<FormValuesProps>({
