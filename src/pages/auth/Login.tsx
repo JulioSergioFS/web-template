@@ -21,7 +21,8 @@ export default function Login() {
   const dispatch = useDispatch();
   const { openSnackbar } = useSnackbar();
   const [showPassword, setShowPassword] = useState(false);
-  const { selectedUser } = useSelector((state) => state.user);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const { selectedUser, users } = useSelector((state) => state.user);
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
@@ -66,9 +67,25 @@ export default function Login() {
           transition={{ ease: "easeIn", duration: 0.3 }}
           exit={{ opacity: 0 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="card"
+          className="card login"
         >
-          <div>?</div>
+          {users.findIndex((user) => user.id === "1") !== -1 &&
+          users.length === 1 ? (
+            <div
+              className="tooltip"
+              onClick={() => setShowTooltip(!showTooltip)}
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+            >
+              ?
+              {showTooltip ? (
+                <p className="tooltip-text">
+                  Use 'admin@gmail.com' as email and 'password' as password, or
+                  create a new account
+                </p>
+              ) : null}
+            </div>
+          ) : null}
           <h2 className="title">Bem-vindo!</h2>
           <RHFInput name="email" placeholder="E-mail" />
           <RHFInput name="password" type="password" placeholder="Senha" />
