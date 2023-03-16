@@ -1,0 +1,1 @@
+import{B as r,a1 as e,a5 as a}from"./index-062f5c21.js";function s(){return r.useState(0),e(a,{title:"Ecommerce",children:e("h3",{className:"main-title",children:"E-Commerce - in progress"})})}export{s as default};
