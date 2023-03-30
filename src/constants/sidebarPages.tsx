@@ -1,7 +1,6 @@
 import dashboardSolid from "@iconify/icons-clarity/dashboard-solid";
 import barChartRounded from "@iconify/icons-material-symbols/bar-chart-rounded";
 import userGroup from "@iconify/icons-mdi/user-group";
-import shoppingBagFill from "@iconify/icons-ph/shopping-bag-fill";
 import { Icon } from "@iconify/react";
 
 export const pages = [
@@ -9,11 +8,6 @@ export const pages = [
     name: "Home",
     icon: <Icon icon={dashboardSolid} height={22} />,
     link: "home",
-  },
-  {
-    name: "E-Commerce",
-    icon: <Icon icon={shoppingBagFill} height={22} />,
-    link: "ecommerce",
   },
   {
     name: "Charts",
