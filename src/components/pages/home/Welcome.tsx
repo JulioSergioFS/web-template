@@ -18,7 +18,7 @@ export function Welcome() {
         </p>
         <button
           className="button-primary go-to"
-          onClick={() => navigate("/web-template/dashboard/charts")}
+          onClick={() => navigate("/dashboard/charts")}
         >
           I Like The Idea!
         </button>

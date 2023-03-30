@@ -48,7 +48,7 @@ export default function Login() {
     try {
       dispatch(validateUser(values));
       openSnackbar({ type: "success", message: "Login feito com sucesso" });
-      navigate("/web-template/dashboard");
+      navigate("/dashboard");
     } catch (error: any) {
       openSnackbar({
         type: "error",
@@ -102,7 +102,7 @@ export default function Login() {
             Não tem uma conta?{" "}
             <b
               className="highlight-text"
-              onClick={() => navigate("/web-template/create-account")}
+              onClick={() => navigate("/create-account")}
             >
               Criar conta
             </b>

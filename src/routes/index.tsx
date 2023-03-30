@@ -1,74 +1,64 @@
-import { lazy } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 import AuthGuard from "../guards/AuthGuard";
+import CreateAccount from "../pages/auth/CreateAccount";
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import Login from "../pages/auth/Login";
+import Charts from "../pages/Charts";
+import Dashboard from "../pages/Dashboard";
+import Home from "../pages/Home";
+import NewUser from "../pages/NewUser";
+import User from "../pages/User";
+import Users from "../pages/Users";
 
-export function Router() {
-  return useRoutes([
-    {
-      path: "/web-template",
-      element: <Navigate to="/web-template/login" replace />,
-    },
-    {
-      path: "/web-template/dashboard",
-      element: (
-        <AuthGuard>
-          <Dashboard />
-        </AuthGuard>
-      ),
-      children: [
-        {
-          element: <Navigate to="/web-template/dashboard/home" replace />,
-          index: true,
-        },
-        {
-          path: "home",
-          element: <Home />,
-        },
-        {
-          path: "ecommerce",
-          element: <Ecommerce />,
-        },
-        {
-          path: "charts",
-          element: <Charts />,
-        },
-        {
-          path: "user",
-          element: <User />,
-        },
-        {
-          path: "users",
-          element: <Users />,
-        },
-        {
-          path: "users/new",
-          element: <CreateNewUser />,
-        },
-      ],
-    },
-    {
-      path: "/web-template/login",
-      element: <Login />,
-    },
-    {
-      path: "/web-template/forgot-password",
-      element: <ForgotPassword />,
-    },
-    {
-      path: "/web-template/create-account",
-      element: <CreateAccount />,
-    },
-  ]);
-}
-
-const Dashboard = lazy(() => import("../pages/Dashboard"));
-const Login = lazy(() => import("../pages/auth/Login"));
-const ForgotPassword = lazy(() => import("../pages/auth/ForgotPassword"));
-const CreateAccount = lazy(() => import("../pages/auth/CreateAccount"));
-
-const Home = lazy(() => import("../pages/Home"));
-const Ecommerce = lazy(() => import("../pages/Ecommerce"));
-const Charts = lazy(() => import("../pages/Charts"));
-const Users = lazy(() => import("../pages/Users"));
-const User = lazy(() => import("../pages/User"));
-const CreateNewUser = lazy(() => import("../pages/NewUser"));
+export const router = createHashRouter([
+  {
+    path: "/",
+    element: <Navigate to="/login" replace />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <AuthGuard>
+        <Dashboard />
+      </AuthGuard>
+    ),
+    children: [
+      {
+        element: <Navigate to="/dashboard/home" replace />,
+        index: true,
+      },
+      {
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "charts",
+        element: <Charts />,
+      },
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "users/new",
+        element: <NewUser />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/create-account",
+    element: <CreateAccount />,
+  },
+]);

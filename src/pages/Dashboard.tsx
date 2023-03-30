@@ -31,7 +31,7 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     setShowUserPopup(!showUserPopup);
-    navigate("/web-template/login");
+    navigate("/login");
     dispatch(clearUser());
   };
 

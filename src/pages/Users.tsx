@@ -18,7 +18,7 @@ export default function Users() {
   const select = (id: string) => {
     try {
       dispatch(selectUser(id));
-      navigate("/web-template/dashboard/user");
+      navigate("/dashboard/user");
     } catch (error) {
       openSnackbar({ type: "error", message: "Erro ao editar" });
     }

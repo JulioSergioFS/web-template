@@ -39,7 +39,7 @@ export default function CreateUserForm() {
     try {
       dispatch(createUser(values));
       openSnackbar({ type: "success", message: "Conta criada com sucesso" });
-      navigate("/web-template/dashboard");
+      navigate("/dashboard");
       console.log(data);
     } catch (error) {
       reset();
@@ -64,10 +64,7 @@ export default function CreateUserForm() {
         <button className="button-primary" type="submit">
           Criar Conta
         </button>
-        <button
-          className="button-secondary"
-          onClick={() => navigate("/web-template/login")}
-        >
+        <button className="button-secondary" onClick={() => navigate("/login")}>
           Voltar
         </button>
       </m.form>
